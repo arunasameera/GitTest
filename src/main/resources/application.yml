@@ -1,0 +1,42 @@
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8302/eureka/
+  instance:
+    hostname: localhost
+
+server:
+  port: 8300
+    
+logging:
+  file: logs/klaver-core-api.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO    
+    org.hibernate.type: TRACE
+    org.hibernate.type.descriptor.sql: TRACE
+
+
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  application:
+    name: db-service
+  jpa:
+    hibernate:
+      ddl-auto: update        
+#     ddl-auto:update
+#     ddl-auto: create
+      show_sql: true
+      
+
